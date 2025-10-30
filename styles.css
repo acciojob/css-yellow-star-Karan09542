@@ -1,13 +1,42 @@
 /*  your css code here. If applicable */
+:root {
+	--side: 75px;
+	--height: 50px;
+}
 .star {
-	width: 100px;
-	aspect-ratio: 1/1;
-	background-color: yellow;
-	clip-path: polygon(
-		50% 0,
-		calc(50%*(1 + sin(0.4turn))) calc(50%*(1 - cos(0.4turn))),
-		calc(50%*(1 - sin(0.2turn))) calc(50%*(1 - cos(0.2turn))),
-		calc(50%*(1 + sin(0.2turn))) calc(50%*(1 - cos(0.2turn))),
-		calc(50%*(1 - sin(0.4turn))) calc(50%*(1 - cos(0.4turn)))
-	)
+	margin: 50px;
+	width: 0;
+	height: 0;
+	border-left: var(--side) solid transparent;
+	border-right: var(--side) solid transparent;
+	border-bottom: var(--height) solid yellow;
+	transform: rotate(35deg);
+	position: relative;
+}
+
+.star::before {
+	width: 0;
+	height: 0;
+	content: "";
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 50px solid yellow;
+	display: block;
+	position: absolute;
+	top: -30px;
+	left: -40px;
+	transform: rotate(-35deg);
+}
+.star::after {
+	width: 0;
+	height: 0;
+	border-left: var(--side) solid transparent;
+	border-right: var(--side) solid transparent;
+	border-top: var(--height) solid yellow;
+	display: block;
+	position: absolute;
+	left: -75px;
+	top: -0px;
+	transform: rotate(110deg);
+	content: "";
 }
